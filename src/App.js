@@ -40,7 +40,6 @@ const LearningPlanGenerator = () => {
 
       // Check if the response includes the learning plan
       if (response.data && response.data.response) {
-        // Replace placeholder with dynamic links based on user interests
         const formattedLearningPlan = response.data.response.replace(
           /\b(?:Khan Academy|YouTube|DragonBox|Photomath|Prodigy)\b/g,
           (match) => {
@@ -49,7 +48,6 @@ const LearningPlanGenerator = () => {
           }
         );
 
-        // Add line breaks after each number and place response in front of the number
         const learningPlanWithFormatting = formattedLearningPlan.replace(
           /(\d+\.\s)(.*?)(?=(\d+\.\s|$))/gs,
           "<div> <strong strong > $1</strong > $2</div > "
@@ -57,7 +55,6 @@ const LearningPlanGenerator = () => {
 
         setLearningPlan(learningPlanWithFormatting);
       } else {
-        // Handle the case where the response doesn't contain a valid learning plan
         console.warn("Invalid response from the API:", response.data);
         // Optionally, you can display an error message to the user
       }

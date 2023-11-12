@@ -192,7 +192,7 @@ body {
 .response-container {
   background-color: #ffffff; /* White background */
   padding: 20px;
-  margin-top: 8px; /* Adjust as needed */
+  margin-top: 8px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   text-align: left; /* Align text to the left in the response container */
