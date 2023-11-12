@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
-
+const apiKey = process.env.REACT_APP_RAPIDAPI_KEY;
 const LearningPlanGenerator = () => {
   const [studentInfo, setStudentInfo] = useState({
     grade: "",
@@ -27,7 +27,7 @@ const LearningPlanGenerator = () => {
       url: "https://open-ai25.p.rapidapi.com/ask",
       headers: {
         "content-type": "application/json",
-        "X-RapidAPI-Key": "d2f3dc4321mshc24366b6a9d2bb6p1de96ejsn9c6813e944fc",
+        "X-RapidAPI-Key": apiKey,
         "X-RapidAPI-Host": "open-ai25.p.rapidapi.com",
       },
       data: {
@@ -40,7 +40,6 @@ const LearningPlanGenerator = () => {
 
       // Check if the response includes the learning plan
       if (response.data && response.data.response) {
-        // Replace placeholder with dynamic links based on user interests
         const formattedLearningPlan = response.data.response.replace(
           /\b(?:Khan Academy|YouTube|DragonBox|Photomath|Prodigy)\b/g,
           (match) => {
@@ -49,7 +48,6 @@ const LearningPlanGenerator = () => {
           }
         );
 
-        // Add line breaks after each number and place response in front of the number
         const learningPlanWithFormatting = formattedLearningPlan.replace(
           /(\d+\.\s)(.*?)(?=(\d+\.\s|$))/gs,
           "<div> <strong strong > $1</strong > $2</div > "
@@ -57,7 +55,6 @@ const LearningPlanGenerator = () => {
 
         setLearningPlan(learningPlanWithFormatting);
       } else {
-        // Handle the case where the response doesn't contain a valid learning plan
         console.warn("Invalid response from the API:", response.data);
         // Optionally, you can display an error message to the user
       }
@@ -72,11 +69,12 @@ const LearningPlanGenerator = () => {
         {" "}
         <h1>Brain Box</h1>
       </div>
+
       <label>
         <div className=" header2"> Your Grade:</div>
         <input
           type="text"
-          placeholder="Enter your Grade"
+          placeholder="Enter your Grade.Example: A,B,75,87"
           name="grade"
           value={studentInfo.grade}
           onChange={handleInputChange}
@@ -84,11 +82,12 @@ const LearningPlanGenerator = () => {
       </label>
       <br />
       <label>
-        <div className=" header2"> Learning Style</div>
+        <div className=" header2"> Learning Style:</div>
 
         <input
           type="text"
-          placeholder="Enter your Learning Style"
+          placeholder="Enter your Learning Style Example:Visual,  
+          Auditory, Kinesthetic"
           name="learningStyle"
           value={studentInfo.learningStyle}
           onChange={handleInputChange}
@@ -96,10 +95,11 @@ const LearningPlanGenerator = () => {
       </label>
       <br />
       <label>
-        <div className=" header2"> Interests</div>
+        <div className=" header2"> Interests:</div>
         <input
           type="text"
-          placeholder="Enter your Interests"
+          placeholder="Enter your Interests.Example: Maths,Science
+          "
           name="interests"
           value={studentInfo.interests}
           onChange={handleInputChange}
