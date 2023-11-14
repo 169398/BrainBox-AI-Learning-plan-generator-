@@ -8,8 +8,15 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  overflow-y: auto;
 }
-
+.mainpage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
 /* Styles for heavenly bodies */
 .sun,
 .planet1,
@@ -146,12 +153,54 @@ body {
   text-align: center;
   color: white;
   animation: fadeIn 1s; /* Fade-in animation */
+  overflow-y: auto;
+  position: relative;
+}
+
+.avator1 {
+  position: absolute;
+  top: 30%;
+  left: 55%;
+  z-index: 1;
+}
+.avator1 img {
+  border-radius: 30%;
+  width: 100%;
+  height: 100%;
+}
+.avator2 {
+  position: absolute;
+  top: 55%;
+  left: 65%;
+  z-index: 1;
+}
+.avator2 img {
+  border-radius: 10%;
+  width: 100%;
+  height: 100%;
+}
+.avator3 {
+  position: absolute;
+  top: 64%;
+  left: 45%;
+  z-index: 1;
+}
+.avator3 img {
+  border-radius: 10%;
+  width: 100%;
+  height: 100%;
 }
 
 /* Style for the close button */
+
+.response-container:hover .close-button {
+  opacity: 1;
+}
 .close-button {
+  transition: opacity 0.2s ease-in-out;
+
   position: absolute;
-  top: 50%;
+  top: 60%;
   right: 10px;
   background-color: #0078d4; /* Blue background */
   color: #ffffff; /* White text color */
@@ -171,6 +220,33 @@ body {
   color: #888;
   font-size: 14px;
 }
+.pageheader {
+  animation: fadeInDown 1s;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.pageheader,
+h5 {
+  font-size: 15px;
+}
+
+.pageheader {
+  font-family: Roboto, sans-serif;
+  color: aqua;
+  font-size: 30px;
+  text-align: center;
+  font-style: italic;
+  font-display: auto;
+}
 .header2 {
   color: aqua;
 }
@@ -181,6 +257,7 @@ body {
 
 /* Header styles */
 .header {
+  font-family: Roboto, sans-serif;
   position: center;
   top: 0;
   left: 0;
@@ -191,16 +268,18 @@ body {
 /* Style for the response container */
 .response-container {
   background-color: #ffffff; /* White background */
-  padding: 20px;
+  padding: 15px;
   margin-top: 8px;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   text-align: left; /* Align text to the left in the response container */
   color: #0078d4; /* Blue text color */
+  overflow-y: auto;
 }
 
 /* Input styles */
 input {
+  font-family: Roboto, sans-serif;
   width: 510px;
   padding: 10px;
   margin: 10px 0;
@@ -237,17 +316,42 @@ button:hover {
     transform: translateY(0);
   }
 }
-@media (max-width: 768px) {
-  .response-container .close-button {
-    position: absolute;
-    top: 40%;
-    right: 10px;
-    background-color: #0078d4; /* Blue background */
-    color: #ffffff; /* White text color */
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
+@media screen and (max-width: 768px) {
+  .header {
+    font-size: 24px;
+  }
+
+  .label {
+    font-size: 16px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .response-container {
+    width: 100%;
+  }
+  .close-button {
+    font-size: 12px;
+    top: auto;
+    position: relative;
+    left: 90%;
+  }
+  .mainpage {
+    font-size: small;
+  }
+
+  .avator1 img {
+    visibility: hidden;
+  }
+  .avator3 img {
+    left: 20%;
+    visibility: hidden;
+  }
+
+  .avator2 img {
+    left: 20%;
+    visibility: hidden;
   }
 }
