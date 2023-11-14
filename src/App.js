@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
+
+import avator10 from "./images/avatar9.jpeg";
+import avator9 from "./images/avatar10.jpeg";
+import avator8 from "./images/avatar8.jpeg";
+
 const apiKey = process.env.REACT_APP_RAPIDAPI_KEY;
 const LearningPlanGenerator = () => {
   const [studentInfo, setStudentInfo] = useState({
@@ -55,6 +60,7 @@ const LearningPlanGenerator = () => {
 
         setLearningPlan(learningPlanWithFormatting);
       } else {
+        // Handle the case where the response doesn't contain a valid learning plan
         console.warn("Invalid response from the API:", response.data);
         // Optionally, you can display an error message to the user
       }
@@ -65,60 +71,78 @@ const LearningPlanGenerator = () => {
 
   return (
     <div>
-      <div className="header">
-        {" "}
-        <h1>Brain Box</h1>
+      <div className="avator1">
+        <img src={avator9} alt="Avatar 2" />
       </div>
-
-      <label>
-        <div className=" header2"> Your Grade:</div>
-        <input
-          type="text"
-          placeholder="Enter your Grade.Example: A,B,75,87"
-          name="grade"
-          value={studentInfo.grade}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <label>
-        <div className=" header2"> Learning Style:</div>
-
-        <input
-          type="text"
-          placeholder="Enter your Learning Style Example:Visual,  
-          Auditory, Kinesthetic"
-          name="learningStyle"
-          value={studentInfo.learningStyle}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <label>
-        <div className=" header2"> Interests:</div>
-        <input
-          type="text"
-          placeholder="Enter your Interests.Example: Maths,Science
-          "
-          name="interests"
-          value={studentInfo.interests}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <button type="button" onClick={generateLearningPlan}>
-        Generate Learning Plan
-      </button>
-
-      {learningPlan && (
-        <div className="response-container">
-          <h2>Learning Plan</h2>
-          <button className="close-button" onClick={clearLearningPlan}>
-            X{" "}
-          </button>
-          <div dangerouslySetInnerHTML={{ __html: learningPlan }}></div>
+      <div className="avator2">
+        <img src={avator10} alt="Avatar 2" />
+      </div>
+      <div className="avator3">
+        <img src={avator8} alt="Avatar 2" />
+      </div>
+      <div className="mainpage">
+        <div className="pageheader">
+          {" "}
+          <h1> WELCOME TO BRAIN BOX </h1>
+          <h5>WE UNLOCK YOUR FULL POTENTIAL USING AI</h5>
         </div>
-      )}
+
+        <div className="header">
+          {" "}
+          <h1>Brain Box</h1>
+        </div>
+        <div className="mainpage_input">
+          <label>
+            <div className=" header2"> Your Grade:</div>
+            <input
+              type="text"
+              placeholder="Enter your Grade.Example: A,B,75,87"
+              name="grade"
+              value={studentInfo.grade}
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <label>
+            <div className=" header2"> Learning Style:</div>
+
+            <input
+              type="text"
+              placeholder="Enter your Learning Style Example:Visual,  
+          Auditory, Kinesthetic"
+              name="learningStyle"
+              value={studentInfo.learningStyle}
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <label>
+            <div className=" header2"> Interests:</div>
+            <input
+              type="text"
+              placeholder="Enter your Interests.Example: Maths,Science
+          "
+              name="interests"
+              value={studentInfo.interests}
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <button type="button" onClick={generateLearningPlan}>
+            Generate Learning Plan
+          </button>
+
+          {learningPlan && (
+            <div className="response-container">
+              <h2>Learning Plan</h2>
+              <button className="close-button" onClick={clearLearningPlan}>
+                X{" "}
+              </button>
+              <div dangerouslySetInnerHTML={{ __html: learningPlan }}></div>
+            </div>
+          )}
+        </div>
+      </div>
 
       {/* Heavenly bodies */}
       <div className="sun"></div>
