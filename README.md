@@ -27,8 +27,6 @@ Contributing
 I  welcome contributions to Brain Box AI. If you would like to contribute, please fork the Brain Box AI repository and create a pull request with your changes.
 I will really appreciate if you incoperate your ideas to this application.
 
-License
-Brain Box AI is licensed under the MIT License.
 
 Contact
 If you have any questions or feedback, please feel free to contact me at kulubiidris@gmail.com
