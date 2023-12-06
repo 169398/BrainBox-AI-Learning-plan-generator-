@@ -32,7 +32,7 @@ const LearningPlanGenerator = () => {
       url: "https://open-ai25.p.rapidapi.com/ask",
       headers: {
         "content-type": "application/json",
-        "X-RapidAPI-Key": apiKey,
+        "X-RapidAPI-Key": "44d4f56d26614ecea47bcf5d71a43cc1",
         "X-RapidAPI-Host": "open-ai25.p.rapidapi.com",
       },
       data: {
